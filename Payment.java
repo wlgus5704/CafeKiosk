@@ -5,6 +5,7 @@ public class Payment {
 
 	ImageIcon Background= new ImageIcon("C:\\Users\\wlgus\\OneDrive\\바탕 화면\\KIOSK\\004.jpg");
 	JFrame f=new JFrame("융다방 키오스크"); 
+	String random_f;
 	
 	Payment(){
 		
@@ -31,7 +32,11 @@ public class Payment {
 		button0.setBounds(600,480,130,40);//버튼 위치 및 크기설정
 		f.add(button0);
 		
-	JLabel ol = new JLabel("주문내역 : "); //라벨링
+		if(Random.Random.equals("꽝")) { //꽝 당첨시 내역에 미기재
+				random_f = "";}
+		else random_f = Random.Random;
+		
+	JLabel ol = new JLabel("주문내역 : "+"내용 "+random_f); //라벨링 (**임시**)
 		f.add(ol);//프레임에 라벨링 추가
 		ol.setBounds(280, 180, 200,30);//절대위치지정
 		ol.setFont(ol.getFont().deriveFont(18.0f)); //글씨 크기지정
