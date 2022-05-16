@@ -3,36 +3,65 @@ import javax.swing.*;
 
 public class Payment {
 
-	ImageIcon Background= new ImageIcon("C:\\Users\\wlgus\\OneDrive\\¹ÙÅÁ È­¸é\\KIOSK\\004.jpg");
-	JFrame f=new JFrame("À¶´Ù¹æ Å°¿À½ºÅ©"); 
+	ImageIcon Background= new ImageIcon("C:\\Users\\wlgus\\OneDrive\\ë°”íƒ• í™”ë©´\\KIOSK\\004.jpg");
+	JFrame f=new JFrame("ìœµë‹¤ë°© í‚¤ì˜¤ìŠ¤í¬"); 
 	
 	Payment(){
 		
-		JPanel Back = new JPanel() { //ÇÁ·¹ÀÓ ÀÌ¹ÌÁö background¸¸µé±â À§ÇØ ÆÇ³Ú»ı¼º
+		JPanel Back = new JPanel() { //í”„ë ˆì„ ì´ë¯¸ì§€ backgroundë§Œë“¤ê¸° ìœ„í•´ íŒë„¬ìƒì„±
 	    public void paintComponent(Graphics g) {
 	    g.drawImage(Background.getImage(),0, 0, null);
-	    setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤
+	    setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •
 	    super.paintComponent(g);} };
 	        
-	    f.setContentPane(Back);//ÇÁ·¹ÀÓÀ» background·Î ¹Ù²Ş
-		f.setTitle("À¶´Ù¹æ Å°¿À½ºÅ©");//Á¦¸ñ¼³Á¤
-        f.setSize(800, 600);//»çÀÌÁî¼³Á¤
-        f.setVisible(true);//Ã¢À» È­¸é¿¡ ³ªÅ¸³¾ °ÍÀÎÁö¼³Á¤
-        f.setResizable(false); //Ã¢°íÁ¤
-        f.setLayout(null); //·¹ÀÌ¾Æ¿ô null(Àı´ëÀ§Ä¡ ¼³Á¤ÇÒ°Å¶ó¼­)
+	    f.setContentPane(Back);//í”„ë ˆì„ì„ backgroundë¡œ ë°”ê¿ˆ
+		f.setTitle("ìœµë‹¤ë°© í‚¤ì˜¤ìŠ¤í¬");//ì œëª©ì„¤ì •
+        f.setSize(800, 600);//ì‚¬ì´ì¦ˆì„¤ì •
+        f.setVisible(true);//ì°½ì„ í™”ë©´ì— ë‚˜íƒ€ë‚¼ ê²ƒì¸ì§€ì„¤ì •
+        f.setResizable(false); //ì°½ê³ ì •
+        f.setLayout(null); //ë ˆì´ì•„ì›ƒ null(ì ˆëŒ€ìœ„ì¹˜ ì„¤ì •í• ê±°ë¼ì„œ)
 	
         
-        JLabel op = new JLabel("ÁÖ¹®±İ¾× : "); //¶óº§¸µ
-		f.add(op);//ÇÁ·¹ÀÓ¿¡ ¶óº§¸µ Ãß°¡
-		op.setBounds(280, 150, 100,30);//Àı´ëÀ§Ä¡ÁöÁ¤
-		op.setFont(op.getFont().deriveFont(18.0f)); //±Û¾¾ Å©±âÁöÁ¤
+        JLabel op = new JLabel("ì£¼ë¬¸ê¸ˆì•¡ : "); //ë¼ë²¨ë§
+		f.add(op);//í”„ë ˆì„ì— ë¼ë²¨ë§ ì¶”ê°€
+		op.setBounds(280, 150, 100,30);//ì ˆëŒ€ìœ„ì¹˜ì§€ì •
+		op.setFont(op.getFont().deriveFont(18.0f)); //ê¸€ì”¨ í¬ê¸°ì§€ì •
 		
-		JButton button0 = new JButton("CARD");//¹öÆ°Ãß°¡
-		button0.setBounds(600,480,130,40);//¹öÆ° À§Ä¡ ¹× Å©±â¼³Á¤
+		JButton button0 = new JButton("CARD");//ë²„íŠ¼ì¶”ê°€
+		button0.setBounds(600,480,130,40);//ë²„íŠ¼ ìœ„ì¹˜ ë° í¬ê¸°ì„¤ì •
 		f.add(button0);
+		
+	JLabel ol = new JLabel("ì£¼ë¬¸ë‚´ì—­ : "); //ë¼ë²¨ë§
+		f.add(ol);//í”„ë ˆì„ì— ë¼ë²¨ë§ ì¶”ê°€
+		ol.setBounds(280, 180, 200,30);//ì ˆëŒ€ìœ„ì¹˜ì§€ì •
+		ol.setFont(ol.getFont().deriveFont(18.0f)); //ê¸€ì”¨ í¬ê¸°ì§€ì •
+		
+		JButton button0 = new JButton("CARD");//ë²„íŠ¼ì¶”ê°€
+		f.add(button0);
+		button0.setBounds(600,480,130,40);//ë²„íŠ¼ ìœ„ì¹˜ ë° í¬ê¸°ì„¤ì •
+		
+		button0.addActionListener(new MyActionListener_c());
+		
 		
 	}	
 	
+	class MyActionListener_c implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JButton b = (JButton)e.getSource();
+			if (b.getText().equals("CARD")) {
+				JFrame new_f = new JFrame();
+				new_f.setTitle("ê²°ì œì™„ë£Œ");//ì œëª©ì„¤ì •
+				new_f.setSize(400,200);//ì‚¬ì´ì¦ˆì„¤ì •
+				new_f.setVisible(true);//ì°½ì„ í™”ë©´ì— ë‚˜íƒ€ë‚¼ ê²ƒì¸ì§€ì„¤ì •
+				new_f.setResizable(false); //ì°½ê³ ì •
+				new_f.setLayout(null); //ë ˆì´ì•„ì›ƒ null(ì ˆëŒ€ìœ„ì¹˜ ì„¤ì •í• ê±°ë¼ì„œ)
+				
+				JLabel card_m = new JLabel("<html>ê²°ì œê°€ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.<br/> ì¹´ë“œë¥¼ ì œê±°í•´ì£¼ì„¸ìš”<html>"); //ë¼ë²¨ë§
+				new_f.add(card_m);//í”„ë ˆì„ì— ë¼ë²¨ë§ ì¶”ê°€
+				card_m.setBounds(110, 40, 200,80);//ì ˆëŒ€ìœ„ì¹˜ì§€ì •
+				card_m.setFont(card_m.getFont().deriveFont(15.0f)); //ê¸€ì”¨ í¬ê¸°ì§€ì •
+				}
+	}}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
