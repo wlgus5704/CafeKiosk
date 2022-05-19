@@ -8,8 +8,9 @@ public class Random extends JFrame{
 
 	ImageIcon Background= new ImageIcon("images/003.jpg");
 	JFrame f = new JFrame("융다방 키오스크"); 
-	public static String Random = "증정품 없음"; //다른 클래스에서 사용하기 위한 전역변수 선언
+	public static String Random="증정품 없음"; //다른 클래스에서 사용하기 위한 전역변수 선언
 	int num = 0; //while문을 위한 num
+	
 	
 	Random(){
 		
@@ -52,15 +53,16 @@ public class Random extends JFrame{
 			if (b.getText().equals("BACK")) {
 				
 			new Menu();
-			f.setVisible(false);}}}
+			f.setVisible(false);
+			}}}
 	
 	class MyActionListener4 implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			JButton b = (JButton)e.getSource();
 			if (b.getText().equals("ORDER")) {
-				
-			new Payment();
-			f.setVisible(false);}}}
+				f.setVisible(false);
+				new Payment();
+			}}}
 	
 	class MyActionListener5 implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
@@ -70,7 +72,7 @@ public class Random extends JFrame{
 				while(num == 0) {
 					String[] items = {"꽝", "아메리카노", "쿠키", "재방문 시 천원 할인"};
 					int nums= (int) (Math.random()*4); //랜덤인덱스 받기
-					Random = items[nums]; //배열안에 랜덤값을 변수안에 넣기
+					Random = items[num]; //배열안에 랜덤값을 변수안에 넣기
 					num = 1;
 					
 					JLabel op = new JLabel(Random); //라벨링
