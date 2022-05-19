@@ -6,36 +6,36 @@ import javax.swing.*;
 
 public class Random extends JFrame{
 
-	ImageIcon Background= new ImageIcon("C:\\Users\\wlgus\\OneDrive\\¹ÙÅÁ È­¸é\\KIOSK\\003.jpg");
-	JFrame f=new JFrame("À¶´Ù¹æ Å°¿À½ºÅ©"); 
-	public String Value;
-	int num = 0;
+	ImageIcon Background= new ImageIcon("images/003.jpg");
+	JFrame f = new JFrame("ìœµë‹¤ë°© í‚¤ì˜¤ìŠ¤í¬"); 
+	public static String Random = "ì¦ì •í’ˆ ì—†ìŒ"; //ë‹¤ë¥¸ í´ë˜ìŠ¤ì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ì „ì—­ë³€ìˆ˜ ì„ ì–¸
+	int num = 0; //whileë¬¸ì„ ìœ„í•œ num
 	
 	Random(){
 		
-		JPanel Back = new JPanel() { //ÇÁ·¹ÀÓ ÀÌ¹ÌÁö background¸¸µé±â À§ÇØ ÆÇ³Ú»ı¼º
+		JPanel Back = new JPanel() { //í”„ë ˆì„ ì´ë¯¸ì§€ backgroundë§Œë“¤ê¸° ìœ„í•´ íŒë„¬ìƒì„±
 	    public void paintComponent(Graphics g) {
 	    g.drawImage(Background.getImage(),0, 0, null);
-	    setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤
+	    setOpaque(false); //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •
 	    super.paintComponent(g);} };
 	        
-	    f.setContentPane(Back);//ÇÁ·¹ÀÓÀ» background·Î ¹Ù²Ş
-		f.setTitle("À¶´Ù¹æ Å°¿À½ºÅ©");//Á¦¸ñ¼³Á¤
-        f.setSize(800, 600);//»çÀÌÁî¼³Á¤
-        f.setVisible(true);//Ã¢À» È­¸é¿¡ ³ªÅ¸³¾ °ÍÀÎÁö¼³Á¤
-        f.setResizable(false); //Ã¢°íÁ¤
+	    f.setContentPane(Back);//í”„ë ˆì„ì„ backgroundë¡œ ë°”ê¿ˆ
+		f.setTitle("ìœµë‹¤ë°© í‚¤ì˜¤ìŠ¤í¬");//ì œëª©ì„¤ì •
+        f.setSize(800, 600);//ì‚¬ì´ì¦ˆì„¤ì •
+        f.setVisible(true);//ì°½ì„ í™”ë©´ì— ë‚˜íƒ€ë‚¼ ê²ƒì¸ì§€ì„¤ì •
+        f.setResizable(false); //ì°½ê³ ì •
         f.setLayout(null);
 		
-		//¹öÆ°¼¼°³
-        JButton button0 = new JButton("PUSH");//¹öÆ°Ãß°¡
-		button0.setBounds(500,200,100,40);//¹öÆ° À§Ä¡ ¹× Å©±â¼³Á¤
+		//ë²„íŠ¼ì„¸ê°œ
+        JButton button0 = new JButton("PUSH");//ë²„íŠ¼ì¶”ê°€
+		button0.setBounds(500,200,100,40);//ë²„íŠ¼ ìœ„ì¹˜ ë° í¬ê¸°ì„¤ì •
 		f.add(button0);
 		
-		JButton button1 = new JButton("ORDER");//¹öÆ°Ãß°¡
-		button1.setBounds(600,480,130,40);//¹öÆ° À§Ä¡ ¹× Å©±â¼³Á¤
+		JButton button1 = new JButton("ORDER");//ë²„íŠ¼ì¶”ê°€
+		button1.setBounds(600,480,130,40);//ë²„íŠ¼ ìœ„ì¹˜ ë° í¬ê¸°ì„¤ì •
 		f.add(button1);
-		JButton button2 = new JButton("BACK");//¹öÆ°Ãß°¡
-		button2.setBounds(50,480,130,40);//¹öÆ° À§Ä¡ ¹× Å©±â¼³Á¤
+		JButton button2 = new JButton("BACK");//ë²„íŠ¼ì¶”ê°€
+		button2.setBounds(50,480,130,40);//ë²„íŠ¼ ìœ„ì¹˜ ë° í¬ê¸°ì„¤ì •
 		f.add(button2);
 		
 		button2.addActionListener(new MyActionListener3());
@@ -45,10 +45,6 @@ public class Random extends JFrame{
 		
 	}
 	
-	private String next(int length) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	class MyActionListener3 implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
@@ -69,18 +65,18 @@ public class Random extends JFrame{
 	class MyActionListener5 implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			JButton b = (JButton)e.getSource();
-			if (b.getText().equals("PUSH")) { //push¹öÆ° ´©¸¦½Ã
+			if (b.getText().equals("PUSH")) { //pushë²„íŠ¼ ëˆ„ë¥¼ì‹œ
 				
 				while(num == 0) {
-					String[] items = {"²Î", "¾Æ¸Ş¸®Ä«³ë", "ÄíÅ°", "1000¿ø ÇÒÀÎ"};
-					int nums= (int) (Math.random()*4); //·£´ıÀÎµ¦½º ¹Ş±â
-					Value = items[nums]; //¹è¿­¾È¿¡ ·£´ı°ªÀ» º¯¼ö¾È¿¡ ³Ö±â
-					num =1;
+					String[] items = {"ê½", "ì•„ë©”ë¦¬ì¹´ë…¸", "ì¿ í‚¤", "ì¬ë°©ë¬¸ ì‹œ ì²œì› í• ì¸"};
+					int nums= (int) (Math.random()*4); //ëœë¤ì¸ë±ìŠ¤ ë°›ê¸°
+					Random = items[nums]; //ë°°ì—´ì•ˆì— ëœë¤ê°’ì„ ë³€ìˆ˜ì•ˆì— ë„£ê¸°
+					num = 1;
 					
-					JLabel op = new JLabel(Value); //¶óº§¸µ
-					f.add(op);//ÇÁ·¹ÀÓ¿¡ ¶óº§¸µ Ãß°¡
-					op.setBounds(340, 205, 200,30);//Àı´ëÀ§Ä¡ÁöÁ¤
-					op.setFont(op.getFont().deriveFont(18.0f)); //±Û¾¾ Å©±âÁöÁ¤
+					JLabel op = new JLabel(Random); //ë¼ë²¨ë§
+					f.add(op);//í”„ë ˆì„ì— ë¼ë²¨ë§ ì¶”ê°€
+					op.setBounds(300, 205, 200,30);//ì ˆëŒ€ìœ„ì¹˜ì§€ì •
+					op.setFont(op.getFont().deriveFont(18.0f)); //ê¸€ì”¨ í¬ê¸°ì§€ì •
 					}
 			}}}
 
