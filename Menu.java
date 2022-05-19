@@ -1,238 +1,271 @@
-
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
-public class Menu extends JFrame{
-   
-      JFrame f=new JFrame("¿∂¥ŸπÊ ≈∞ø¿Ω∫≈©"); 
-      ImageIcon image = new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\002.jpg");
+public class Menu extends JFrame {
 
-      public int totalPrice;
-      boolean orderCom = false;
-      
-      Menu(){
-      
-      JPanel Back = new JPanel() { //«¡∑π¿” ¿ÃπÃ¡ˆ background∏∏µÈ±‚ ¿ß«ÿ ∆«≥⁄ª˝º∫
-      public void paintComponent(Graphics g) {
-      g.drawImage(image.getImage(),0, 0, null);
-      setOpaque(false); //±◊∏≤¿ª «•Ω√«œ∞‘ º≥¡§
-      super.paintComponent(g);} };
-                 
-      f.setContentPane(Back);//«¡∑π¿”¿ª background∑Œ πŸ≤ﬁ
-      
-      //∞°∞› πËø≠
-      int price[] = {3000, 4500, 3500, 4000, 4000, 4000, 2000, 5000, 5500};
-      
-      //º“¡¶∏Ò 
-      JLabel A = new JLabel("COFFEE"); //∂Û∫ß∏µ
-      JLabel B = new JLabel("NON-COFFEE");
-      JLabel C = new JLabel("DESERT");
-      f.add(A);
-      A.setBounds(35, 35, 100,30);//¿˝¥Î¿ßƒ°¡ˆ¡§
-      f.add(B);
-      B.setBounds(35, 200, 100,30);
-      f.add(C);
-      C.setBounds(35, 360, 100,30);
-      
-      //∏ﬁ¥∫¿Ã∏ß,∞°∞› 1¡Ÿ
-      JLabel small_Ame = new JLabel("æ∆∏ﬁ∏Æƒ´≥Î");   
-      f.add(small_Ame);
-      small_Ame.setBounds(125, 65, 65,30);
-      JLabel price_Ame = new JLabel("3000ø¯");   
-      f.add(price_Ame);
-      price_Ame.setBounds(125, 85, 65,30);
-      
-      JLabel small_lat = new JLabel("Ω∫¿ß∆Æ ∂Û∂º");   
-      f.add(small_lat);
-      small_lat.setBounds(315, 65, 65,30);
-      JLabel price_lat = new JLabel("4500ø¯");   
-      f.add(price_lat);
-      price_lat.setBounds(315, 85, 65,30);
-      
-      JLabel small_moc = new JLabel("ƒ´∆‰∏ƒ´");   
-      f.add(small_moc);
-      small_moc.setBounds(500, 65, 65,30);
-      JLabel price_moc = new JLabel("3500ø¯");   
-      f.add(price_moc);
-      price_moc.setBounds(500, 85, 65,30);
-      
-      //∏ﬁ¥∫¿Ã∏ß,∞°∞› 2¡Ÿ
-      JLabel small_mi = new JLabel("π–≈©∆º");   
-      f.add(small_mi);
-      small_mi.setBounds(125, 230, 65,30);
-      JLabel price_mi = new JLabel("4000ø¯");   
-      f.add(price_mi);
-      price_mi.setBounds(125, 250, 65,30);
-      
-      
-      JLabel small_cho = new JLabel("√ ƒ⁄∂Û∂º");   
-      f.add(small_cho);
-      small_cho.setBounds(315, 230, 65,30);
-      JLabel price_cho = new JLabel("4000ø¯");   
-      f.add(price_cho);
-      price_cho.setBounds(315, 250, 65,30);
-      
-      JLabel small_gre = new JLabel("≥Ï¬˜");   
-      f.add(small_gre);
-      small_gre.setBounds(500, 230, 65,30);
-      JLabel price_gre = new JLabel("4000ø¯");   
-      f.add(price_gre);
-      price_gre.setBounds(500, 250, 65,30);
-      
-      //∏ﬁ¥∫¿Ã∏ß,∞°∞› 3¡Ÿ
-      JLabel small_ma = new JLabel("∏∂ƒ´∑’");   
-      f.add(small_ma);
-      small_ma.setBounds(125, 400, 65,30);
-      JLabel price_ma = new JLabel("2000ø¯");   
-      f.add(price_ma);
-      price_ma.setBounds(125, 420, 65,30);
-      
-      JLabel small_che = new JLabel("ƒ°¡Óƒ…¿Ã≈©");   
-      f.add(small_che);
-      small_che.setBounds(315, 400, 65,30);
-      JLabel price_che = new JLabel("5000ø¯");   
-      f.add(price_che);
-      price_che.setBounds(315, 420, 65,30);
-      
-      JLabel small_wa = new JLabel("≈©∑Œ«√");   
-      f.add(small_wa);
-      small_wa.setBounds(500, 400, 65,30);
-      JLabel price_wa = new JLabel("5500ø¯");   
-      f.add(price_wa);
-      price_wa.setBounds(500, 420, 65,30);
-            
-      
-      //∏ﬁ¿Œπˆ∆∞ µŒ∞≥
-      JButton button2 = new JButton("BACK");
-      button2.setBounds(625,40,100,40);
-      f.add(button2);
-      button2.addActionListener(new MyActionListener2());//æ◊º«∏ÆΩ∫≥  √ﬂ∞°
-      
-      JButton button = new JButton("ORDER");//πˆ∆∞√ﬂ∞°
-      button.setBounds(625,480,100,40);//πˆ∆∞ ¿ßƒ° π◊ ≈©±‚º≥¡§
-      f.add(button);
-      button.addActionListener(new MyActionListener3());//æ◊º«∏ÆΩ∫≥  √ﬂ∞°
-      
-      //coffee ¿ÃπÃ¡ˆ
-      JLabel Americano = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\æ∆∏ﬁ∏Æƒ´≥Î(¡§ªÁ∞¢«¸).jpg"));
-      JLabel Latte = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\∂Û∂º(¡§ªÁ∞¢«¸).jpg"));
-      JLabel mocha = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\ƒ´∆‰∏ƒ´(¡§ªÁ∞¢«¸).jpg"));
-         
-      //coffee ¿ßƒ°º≥¡§
-      f.add(Americano);
-      Americano.setBounds(35, 65, 80,80);
-      f.add(Latte);
-      Latte.setBounds(220, 65, 80,80);
-      f.add(mocha);
-      mocha.setBounds(400, 65, 80,80);
-               
-      //non-coffee ¿ÃπÃ¡ˆ
-      JLabel milktea = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\π–≈©∆º(¡§ªÁ∞¢«¸).jpg"));   
-      JLabel choco = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\√ ƒ⁄∂Û∂º(¡§ªÁ∞¢«¸).jpg"));   
-      JLabel greentea = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\≥Ï¬˜(¡§ªÁ∞¢«¸).jpg"));   
-      
-      //non-coffee ¿ßƒ°º≥¡§
-      f.add(milktea);
-      milktea.setBounds(35, 230, 80,80);
-      f.add(choco);
-      choco.setBounds(225, 230, 80,80);
-      f.add(greentea);
-      greentea.setBounds(400, 230, 80,80);
-            
-      //desert
-      JLabel macaroon = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\∏∂ƒ´∑’(¡§ªÁ∞¢«¸).jpg"));   
-      JLabel cake = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\ƒ°¡Óƒ…¿Ã≈©(¡§ªÁ∞¢«¸).jpg"));
-      JLabel waffle = new JLabel(new ImageIcon("C:\\Users\\wlgus\\OneDrive\\πŸ≈¡ »≠∏È\\KIOSK\\≈©∑Œ«√(¡§ªÁ∞¢«¸).jpg"));
-            
-      //desert ¿ßƒ°º≥¡§
-      f.add(macaroon);
-      macaroon.setBounds(35, 400, 80,80);
-      f.add(cake);
-      cake.setBounds(220, 400, 80,80);
-      f.add(waffle);
-      waffle.setBounds(400, 400, 80,80);
-                  
-      
-      //JSpinner
-      SpinnerModel americano_v =
-               new SpinnerNumberModel(0, //initial value
-                  0, //minimum value
-                  30, //maximum value
-                  1); //step
-      SpinnerModel sweetlatte_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      SpinnerModel cafemocha_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      SpinnerModel milktea_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      SpinnerModel chocolatte_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      SpinnerModel greentea_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      SpinnerModel macaron_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      SpinnerModel cheesecake_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      SpinnerModel croffle_v = new SpinnerNumberModel(0, 0, 30, 1); 
-      
-      JSpinner americano_s = new JSpinner(americano_v); 
-      JSpinner sweetlatte_s = new JSpinner(sweetlatte_v); 
-      JSpinner cafemocha_s = new JSpinner(cafemocha_v); 
-      JSpinner milktea_s = new JSpinner(milktea_v); 
-      JSpinner chocolatte_s = new JSpinner(chocolatte_v); 
-      JSpinner greentea_s = new JSpinner(greentea_v); 
-      JSpinner macaron_s = new JSpinner(macaron_v); 
-      JSpinner cheesecake_s = new JSpinner(cheesecake_v); 
-      JSpinner croffle_s = new JSpinner(croffle_v);       
-      
-      f.add(americano_s);
-      americano_s.setBounds(125,110,50,30);
-      f.add(sweetlatte_s);
-      sweetlatte_s.setBounds(320,110,50,30); 
-      f.add(cafemocha_s);
-      cafemocha_s.setBounds(500,110,50,30); 
-      f.add(milktea_s);
-      milktea_s.setBounds(125, 275, 50,30);
-      f.add(chocolatte_s);
-      chocolatte_s.setBounds(315, 275, 50,30);
-      f.add(greentea_s);
-      greentea_s.setBounds(500, 275, 50,30);
-      f.add(macaron_s);
-      macaron_s.setBounds(125, 445, 50,30);
-      f.add(cheesecake_s);
-      cheesecake_s.setBounds(315, 445, 50,30);
-      f.add(croffle_s);
-      croffle_s.setBounds(500, 445, 50,30);
-         
-      f.setSize(800,600);  
-      f.setLayout(null);
-       f.setVisible(true); 
+	JFrame f = new JFrame("ÏúµÎã§Î∞© ÌÇ§Ïò§Ïä§ÌÅ¨");
+	ImageIcon image = new ImageIcon("images/002.jpg");
 
-      while(true) {
-         if(orderCom) {
-            //¡÷πÆºˆ∑Æ πﬁæ∆ø¿±‚
-            int ordernum[] = {(int)americano_s.getValue(), (int)sweetlatte_s.getValue(), (int)cafemocha_s.getValue(), (int)milktea_s.getValue(), 
-                  (int)chocolatte_s.getValue(), (int)greentea_s.getValue(), (int)macaron_s.getValue(), (int)cheesecake_s.getValue(), (int)croffle_s.getValue()};
-            // √—∞°∞› ±∏«œ±‚ (∏ﬁº“µÂ µ˚∑Œ ∏∏µÈ±‚)
-            for(int i=0; i<ordernum.length; i++)
-               totalPrice += ordernum[i]*price[i];   
-            System.out.println(totalPrice);
-            break;}}
-      
-}
-   class MyActionListener2 implements ActionListener{
-      public void actionPerformed(ActionEvent e) {
-         JButton b = (JButton)e.getSource();
-         if (b.getText().equals("BACK")) {
-         new Main();
-         f.setVisible(false);}}}
-   
-   class MyActionListener3 implements ActionListener{
-      public void actionPerformed(ActionEvent e) {
-         JButton b = (JButton)e.getSource();
-         if (b.getText().equals("ORDER")) {
-            orderCom = true;
-            new Random();
-            f.setVisible(false);}}}
+	public static int totalPrice = 0;
+	static String order_list = ""; // Ï£ºÎ¨∏ÎÇ¥Ïö© Î∞õÏïÑÏò¨ string
+	int ordernum[] = new int[9];
+	int price[] = { 3000, 4500, 3500, 4000, 4000, 4000, 2000, 5000, 5500 };
+	String[] Menu_name = { "ÏïÑÎ©îÎ¶¨Ïπ¥ÎÖ∏", "Ïä§ÏúÑÌä∏ÎùºÎñº", "Ïπ¥ÌéòÎ™®Ïπ¥", "Î∞ÄÌÅ¨Ìã∞", "Ï¥àÏΩîÎùºÎñº", "ÎÖπÏ∞®", "ÎßàÏπ¥Î°±", "ÏπòÏ¶àÏºÄÏù¥ÌÅ¨", "ÌÅ¨Î°úÌîå" };
 
-   
-   public static void main(String[] args) {   
-        Menu frame = new Menu();
-    }
+	Menu() {
+
+		JPanel Back = new JPanel() { // ÌîÑÎ†àÏûÑ Ïù¥ÎØ∏ÏßÄ backgroundÎßåÎì§Í∏∞ ÏúÑÌï¥ ÌåêÎÑ¨ÏÉùÏÑ±
+			public void paintComponent(Graphics g) {
+				g.drawImage(image.getImage(), 0, 0, null);
+				setOpaque(false); // Í∑∏Î¶ºÏùÑ ÌëúÏãúÌïòÍ≤å ÏÑ§Ï†ï
+				super.paintComponent(g);
+			}
+		};
+
+		f.setContentPane(Back);// ÌîÑÎ†àÏûÑÏùÑ backgroundÎ°ú Î∞îÍøà
+
+		// ÏÜåÏ†úÎ™©
+		JLabel A = new JLabel("COFFEE"); // ÎùºÎ≤®ÎßÅ
+		JLabel B = new JLabel("NON-COFFEE");
+		JLabel C = new JLabel("DESERT");
+		f.add(A);
+		A.setBounds(35, 35, 100, 30);// Ï†àÎåÄÏúÑÏπòÏßÄÏ†ï
+		f.add(B);
+		B.setBounds(35, 200, 100, 30);
+		f.add(C);
+		C.setBounds(35, 360, 100, 30);
+
+		// Î©îÎâ¥Ïù¥Î¶Ñ,Í∞ÄÍ≤© 1Ï§Ñ
+		
+		JLabel[] menuLabel = new JLabel[9];
+		JLabel[] priceLabel = new JLabel[9];
+		JLabel[] menuImages = new JLabel[9];
+		
+		int x = 125; //ÎùºÎ≤®
+		int y = 65;
+		
+		int xx = 35; //Ïù¥ÎØ∏ÏßÄ
+		int yy = 65;
+		
+		for (int i = 0 ; i < Menu_name.length; i++) {
+			menuLabel[i] = new JLabel(Menu_name[i]);
+			f.add(menuLabel[i]);
+			menuLabel[i].setBounds(x, y, 60, 26);
+			
+			priceLabel[i] = new JLabel(Integer.toString(price[i]));
+			f.add(priceLabel[i]);
+			priceLabel[i].setBounds(x, y+20, 60, 25);
+			
+			
+			menuImages[i] = new JLabel(new ImageIcon("images/"+ Menu_name[i] +"(Ï†ïÏÇ¨Í∞ÅÌòï).jpg"));
+			f.add(menuImages[i]);
+			menuImages[i].setBounds(xx, yy, 80, 80);
+			
+			if (i%3 ==2 ) {  // Ïù∏Îç±Ïä§ 2, 5, 8
+				x = 125; //JLabel
+				y += 165;
+				
+				xx = 35; //Ïù¥ÎØ∏ÏßÄ
+				yy += 165;
+				
+			}
+			
+			else if (i%3 == 0 || i%3 == 1) {  // Ïù∏Îç±Ïä§ 1, 2, 4, 5, 7, 8
+				x += 190;
+				xx += 185;
+		
+			}
+		}
+		
+
+		// Î©îÏù∏Î≤ÑÌäº ÎëêÍ∞ú
+		JButton button2 = new JButton("BACK");
+		button2.setBounds(625, 40, 100, 40);
+		f.add(button2);
+		button2.addActionListener(new MyActionListener2());// Ïï°ÏÖòÎ¶¨Ïä§ÎÑà Ï∂îÍ∞Ä
+
+		JButton button = new JButton("ORDER");// Î≤ÑÌäºÏ∂îÍ∞Ä
+		button.setBounds(625, 480, 100, 40);// Î≤ÑÌäº ÏúÑÏπò Î∞è ÌÅ¨Í∏∞ÏÑ§Ï†ï
+		f.add(button);
+		button.addActionListener(new MyActionListener3());// Ïï°ÏÖòÎ¶¨Ïä§ÎÑà Ï∂îÍ∞Ä
+
+
+		
+		SpinnerModel americano_v = new SpinnerNumberModel(0, // initial value
+				0, // minimum value
+				30, // maximum value
+				1); // step
+		SpinnerModel sweetlatte_v = new SpinnerNumberModel(0, 0, 30, 1);
+		SpinnerModel cafemocha_v = new SpinnerNumberModel(0, 0, 30, 1);
+		SpinnerModel milktea_v = new SpinnerNumberModel(0, 0, 30, 1);
+		SpinnerModel chocolatte_v = new SpinnerNumberModel(0, 0, 30, 1);
+		SpinnerModel greentea_v = new SpinnerNumberModel(0, 0, 30, 1);
+		SpinnerModel macaron_v = new SpinnerNumberModel(0, 0, 30, 1);
+		SpinnerModel cheesecake_v = new SpinnerNumberModel(0, 0, 30, 1);
+		SpinnerModel croffle_v = new SpinnerNumberModel(0, 0, 30, 1);
+
+		
+		// JSpinner (-Ïà´ÏûêÏôÄ ÏµúÎåÄÏà´Ïûê Ï†úÌïúÏùÑ ÏúÑÌïú ÏΩîÎìú)
+				
+		JSpinner americano_s = new JSpinner(americano_v);
+		JSpinner sweetlatte_s = new JSpinner(sweetlatte_v);
+		JSpinner cafemocha_s = new JSpinner(cafemocha_v);
+		JSpinner milktea_s = new JSpinner(milktea_v);
+		JSpinner chocolatte_s = new JSpinner(chocolatte_v);
+		JSpinner greentea_s = new JSpinner(greentea_v);
+		JSpinner macaron_s = new JSpinner(macaron_v);
+		JSpinner cheesecake_s = new JSpinner(cheesecake_v);
+		JSpinner croffle_s = new JSpinner(croffle_v);
+
+		americano_s.addChangeListener(new SpinnerListener0());
+		sweetlatte_s.addChangeListener(new SpinnerListener1());
+		cafemocha_s.addChangeListener(new SpinnerListener2());
+		milktea_s.addChangeListener(new SpinnerListener3());
+
+		chocolatte_s.addChangeListener(new SpinnerListener4());
+
+		greentea_s.addChangeListener(new SpinnerListener5());
+
+		macaron_s.addChangeListener(new SpinnerListener6());
+
+		cheesecake_s.addChangeListener(new SpinnerListener7());
+
+		croffle_s.addChangeListener(new SpinnerListener8());
+
+		f.add(americano_s);
+		americano_s.setBounds(125, 110, 50, 30);
+		f.add(sweetlatte_s);
+		sweetlatte_s.setBounds(320, 110, 50, 30);
+		f.add(cafemocha_s);
+		cafemocha_s.setBounds(500, 110, 50, 30);
+		f.add(milktea_s);
+		milktea_s.setBounds(125, 275, 50, 30);
+		f.add(chocolatte_s);
+		chocolatte_s.setBounds(315, 275, 50, 30);
+		f.add(greentea_s);
+		greentea_s.setBounds(500, 275, 50, 30);
+		f.add(macaron_s);
+		macaron_s.setBounds(125, 445, 50, 30);
+		f.add(cheesecake_s);
+		cheesecake_s.setBounds(315, 445, 50, 30);
+		f.add(croffle_s);
+		croffle_s.setBounds(500, 445, 50, 30);
+
+		f.setSize(800, 600);
+		f.setLayout(null);
+		f.setVisible(true);
+
+
+	}
+
+	void total() {
+
+		// total price Íµ¨ÌïòÍ∏∞
+		for (int i = 0; i < ordernum.length; i++) {
+			totalPrice += ordernum[i] * price[i];
+		}
+
+		// Ï£ºÎ¨∏ÎÇ¥Ïö© Î∞õÏïÑÏò§Í∏∞
+		for (int i = 0; i < ordernum.length; i++) {
+			if (ordernum[i] != 0) {
+				order_list += Menu_name[i] + " " + ordernum[i] + "Í∞ú " + ordernum[i] * price[i] + "Ïõê\n";
+				;
+			}
+		}
+	}
+
+	class SpinnerListener0 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[0] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener1 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[1] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener2 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[2] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener3 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[3] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener4 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[4] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener5 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[5] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener6 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[6] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener7 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[7] = (int) spinner.getValue();
+		}
+	}
+
+	class SpinnerListener8 implements ChangeListener {
+		public void stateChanged(ChangeEvent evt) {
+			JSpinner spinner = (JSpinner) evt.getSource();
+			ordernum[8] = (int) spinner.getValue();
+		}
+	}
+
+	class MyActionListener2 implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JButton b = (JButton) e.getSource();
+			if (b.getText().equals("BACK")) {
+				new Main();
+				f.setVisible(false);
+			}
+		}
+	}
+
+	class MyActionListener3 implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			JButton b = (JButton) e.getSource();
+			if (b.getText().equals("ORDER")) {
+				total();
+
+				new Random();
+				f.setVisible(false);
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		Menu frame = new Menu();
+
+	}
 }
