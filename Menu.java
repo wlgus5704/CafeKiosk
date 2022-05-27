@@ -42,16 +42,9 @@ public class Menu extends JFrame {
 		C.setBounds(35, 360, 100, 30);
 
 		// 메뉴이름,가격 1줄
-		
 		JLabel[] menuLabel = new JLabel[9];
 		JLabel[] priceLabel = new JLabel[9];
 		JLabel[] menuImages = new JLabel[9];
-		
-		int x = 125; //라벨
-		int y = 65;
-		
-		int xx = 35; //이미지
-		int yy = 65;
 		
 		//품절메뉴
 		String [] soldout = {"","","","","","","","",""};
@@ -120,7 +113,12 @@ public class Menu extends JFrame {
 				
 				}}
 			
-
+		int x = 125; //라벨
+		int y = 65;
+		
+		int xx = 35; //이미지
+		int yy = 65;
+		
 		for (int i = 0 ; i < Menu_name.length; i++) {
 			
 			
