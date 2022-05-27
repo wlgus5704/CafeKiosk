@@ -3,45 +3,46 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-    ImageIcon image= new ImageIcon("C:\\Users\\wlgus\\OneDrive\\¹ÙÅÁ È­¸é\\KIOSK\\001.jpg");
-    //ÀÌ¹ÌÁö º¯¼ö¿¡ ºÒ·¯¿À±â
-    	JFrame f = new JFrame("À¶´Ù¹æ Å°¿À½ºÅ©"); 
-    	boolean Takeout = false;
+    ImageIcon image = new ImageIcon("images/001.jpg");
+	    //ì´ë¯¸ì§€ ë³€ìˆ˜ì— ë¶ˆëŸ¬ì˜¤ê¸°
+    
+    	JFrame f = new JFrame("ìœµë‹¤ë°© í‚¤ì˜¤ìŠ¤í¬"); 
+    	
+    	static boolean Takeout = false;
+    	
     	Main() {
     		
-    		
-    		
-        JPanel background = new JPanel() { //ÇÁ·¹ÀÓ ÀÌ¹ÌÁö background¸¸µé±â À§ÇØ ÆÇ³Ú»ı¼º
+        JPanel background = new JPanel() { //í”„ë ˆì„ ì´ë¯¸ì§€ backgroundë§Œë“¤ê¸° ìœ„í•´ íŒë„¬ìƒì„±
         public void paintComponent(Graphics g) {
         g.drawImage(image.getImage(),0, 0, null);
-        setOpaque(false); //±×¸²À» Ç¥½ÃÇÏ°Ô ¼³Á¤
+        setOpaque(false);                 //ê·¸ë¦¼ì„ í‘œì‹œí•˜ê²Œ ì„¤ì •
         super.paintComponent(g);} };
         
-        f.setContentPane(background);//ÇÁ·¹ÀÓÀ» background·Î ¹Ù²Ş
-        f.setTitle("À¶´Ù¹æ Å°¿À½ºÅ©");//Á¦¸ñ¼³Á¤
-        f.setSize(800, 600);//»çÀÌÁî¼³Á¤
-        f.setVisible(true);//Ã¢À» È­¸é¿¡ ³ªÅ¸³¾ °ÍÀÎÁö¼³Á¤
-        f.setResizable(false); //Ã¢°íÁ¤
+        f.setContentPane(background);//í”„ë ˆì„ì„ backgroundë¡œ ë°”ê¿ˆ
+        f.setTitle("ìœµë‹¤ë°© í‚¤ì˜¤ìŠ¤í¬");   //ì œëª©ì„¤ì •
+        f.setSize(800, 600);        //ì‚¬ì´ì¦ˆì„¤ì •
+        f.setVisible(true);         //ì°½ì„ í™”ë©´ì— ë‚˜íƒ€ë‚¼ ê²ƒì¸ì§€ì„¤ì •
+        f.setResizable(false);      //ì°½ê³ ì •
         f.setLayout(null);
         
         
 		
-		JButton button = new JButton("¸ÅÀå");
+		JButton button = new JButton("ë§¤ì¥");
 		button.setBounds(480,480,130,40);
 		button.addActionListener(new MyActionListener());
-		JButton button2 = new JButton("Å×ÀÌÅ©¾Æ¿ô");//¹öÆ°Ãß°¡
-		button2.setBounds(180,480,130,40);//¹öÆ° À§Ä¡ ¹× Å©±â¼³Á¤
+		JButton button2 = new JButton("í…Œì´í¬ì•„ì›ƒ");//ë²„íŠ¼ì¶”ê°€
+		button2.setBounds(180,480,130,40);      //ë²„íŠ¼ ìœ„ì¹˜ ë° í¬ê¸°ì„¤ì •
 		button2.addActionListener(new MyActionListener());
 		
-		f.add(button); //¹öÆ° Ãß°¡
+		f.add(button); //ë²„íŠ¼ ì¶”ê°€
 		f.add(button2); 
     }
     	
 	class MyActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			JButton b = (JButton)e.getSource();
-			if (b.getText().equals("Å×ÀÌÅ©¾Æ¿ô"))
-				Takeout = true;
+			if (b.getText().equals("í…Œì´í¬ì•„ì›ƒ")) {
+				Takeout = true;}
 				
 			new Menu();
 			f.setVisible(false);}}
@@ -49,6 +50,4 @@ public class Main {
     
     public static void main(String[] args) {	
         Main frame = new Main();
-    }
-	
-}
+    }}
