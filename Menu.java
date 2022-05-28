@@ -143,7 +143,7 @@ public class Menu extends JFrame {
 				xx = 35;     //이미지
 				yy += 165;   }
 			
-			else if (i%3 == 0 || i%3 == 1) {  // 인덱스 1, 2, 4, 5, 7, 8
+			else {  // 인덱스 1, 2, 4, 5, 7, 8
 				x += 190;
 				xx += 185; }
 		}
