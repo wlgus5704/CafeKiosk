@@ -14,8 +14,9 @@ public class Menu extends JFrame {
 	public static int totalPrice = 0;
 	static String order_list = ""; // 주문내용 받아올 string
 	int ordernum[] = new int[9];
-	int price[] = { 3000, 4500, 3500, 4000, 4000, 4000, 2000, 5000, 5500 };
-	String[] Menu_name = { "아메리카노", "스위트라떼", "카페모카", "밀크티", "초코라떼", "녹차", "마카롱", "치즈케이크", "크로플" };
+	static int price[] = { 3000, 4500, 3500, 4000, 4000, 4000, 2000, 5000, 5500 };
+	static String[] Menu_name = { "아메리카노", "스위트라떼", "카페모카", "밀크티", "초코라떼", "녹차", "마카롱", "치즈케이크", "크로플" };
+	static String [] soldout = {"","","","","","","","","",""};
 
 	Menu() {
 
@@ -46,13 +47,10 @@ public class Menu extends JFrame {
 		JLabel[] priceLabel = new JLabel[9];
 		JLabel[] menuImages = new JLabel[9];
 		
-		//품절메뉴
-		String [] soldout = {"","","","","","","","",""};
-		//아메리카노, 스위트라떼, 카페모카, 밀크티, 초코라떼, 녹차, 마카롱, 치즈케이크, 크로플
-		
+		//품절처리
 		for(int j =0; j<9; j++) {
-			if(soldout[j] == Menu_name[j]) {
-			
+			if(price[j] == 0) {
+				Menu_name[j] = "";
 				switch(j) {
 				case 0:
 					Menu_name[0] = Menu_name[1];
@@ -99,10 +97,10 @@ public class Menu extends JFrame {
 					price[8] = 0;
 					break;
 				case 7:
-					Menu_name[7] = Menu_name[7];
+					Menu_name[7] = Menu_name[8];
 					Menu_name[8] = "";
 					price[7] = price[8];
-					price[8] =0;
+					price[8] = 0;
 					break;
 				case 8:
 					Menu_name[8] = "";
@@ -112,6 +110,17 @@ public class Menu extends JFrame {
 				}
 				
 				}}
+		
+		//double check
+		for(int i=0; i<7;i+=3) {
+			int j = i+1;
+			if(price[i] == 0) {
+				Menu_name[i] = Menu_name[j];
+				Menu_name[j] = "";
+				price[i] = price[j];
+				price[j] = 0;			
+			
+		}}
 			
 		int x = 125; //라벨
 		int y = 65;
@@ -119,33 +128,37 @@ public class Menu extends JFrame {
 		int xx = 35; //이미지
 		int yy = 65;
 		
-		for (int i = 0 ; i < Menu_name.length; i++) {
+		for (int i = 0; i < Menu_name.length; i++) {
 			
-			
+			if(price[i] != 0) {
 			menuLabel[i] = new JLabel(Menu_name[i]);
 			f.add(menuLabel[i]);
 			menuLabel[i].setBounds(x, y, 65, 26);
 			
-			if(price[i] != 0) {
-			priceLabel[i] = new JLabel(Integer.toString(price[i]));
-			f.add(priceLabel[i]);
-			priceLabel[i].setBounds(x, y+20, 60, 25);}
-			
-			
-			menuImages[i] = new JLabel(new ImageIcon("images/"+ Menu_name[i] +"(정사각형).jpg"));
+			menuImages[i] = new JLabel(new ImageIcon("images/" + Menu_name[i] + "(정사각형).jpg"));
 			f.add(menuImages[i]);
 			menuImages[i].setBounds(xx, yy, 80, 80);
+
 			
-			if (i%3 ==2 ) {  // 인덱스 2, 5, 8
-				x = 125;     //JLabel
-				y += 165; 
-				
-				xx = 35;     //이미지
-				yy += 165;   }
+			priceLabel[i] = new JLabel(Integer.toString(price[i]));
+			f.add(priceLabel[i]);
+			priceLabel[i].setBounds(x, y + 20, 60, 25);}
 			
-			else {  // 인덱스 1, 2, 4, 5, 7, 8
+
+			
+
+			if (i % 3 == 2) { // 인덱스 2, 5, 8
+				x = 125; // JLabel
+				y += 165;
+
+				xx = 35; // 이미지
+				yy += 165;
+			}
+
+			else { // 인덱스 0, 1, 3, 4, 6, 7
 				x += 190;
-				xx += 185; }
+				xx += 185;
+			}
 		}
 		
 
@@ -192,15 +205,10 @@ public class Menu extends JFrame {
 		sweetlatte_s.addChangeListener(new SpinnerListener1());
 		cafemocha_s.addChangeListener(new SpinnerListener2());
 		milktea_s.addChangeListener(new SpinnerListener3());
-
 		chocolatte_s.addChangeListener(new SpinnerListener4());
-
 		greentea_s.addChangeListener(new SpinnerListener5());
-
 		macaron_s.addChangeListener(new SpinnerListener6());
-
 		cheesecake_s.addChangeListener(new SpinnerListener7());
-
 		croffle_s.addChangeListener(new SpinnerListener8());
 
 		
@@ -357,9 +365,25 @@ public class Menu extends JFrame {
 			JButton b = (JButton) e.getSource();
 			if (b.getText().equals("ORDER")) {
 				total();
-
+				if(totalPrice != 0) {
 				new Random();
-				f.setVisible(false);
+				f.setVisible(false);}
+				else {
+					f.setVisible(true);
+					JFrame new_f = new JFrame();
+					new_f.setTitle("ERROR");   //제목설정
+					new_f.setSize(400,200);    //사이즈설정
+					new_f.setVisible(true);    //창을 화면에 나타낼 것인지설정
+					new_f.setResizable(false); //창고정
+					new_f.setLayout(null);     //레이아웃 null(절대위치 설정할거라서)
+					
+					JLabel menu_e = new JLabel("<html>메뉴가 선택되지 않았습니다.<br> 메뉴를 선택해 주세요!<html>"); //라벨링
+					new_f.add(menu_e);                //프레임에 라벨링 추가
+					menu_e.setBounds(110, 40, 200,80);//절대위치지정
+					menu_e.setFont(menu_e.getFont().deriveFont(15.0f)); //글씨 크기지정
+					
+				}
+				
 			}
 		}
 	}
