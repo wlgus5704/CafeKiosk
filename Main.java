@@ -29,13 +29,22 @@ public class Main {
 		
 		JButton button = new JButton("매장");
 		button.setBounds(480,480,130,40);
-		button.addActionListener(new MyActionListener());
+		f.add(button); //버튼 추가
+		button.addActionListener(new MyActionListener0());
 		JButton button2 = new JButton("테이크아웃");//버튼추가
 		button2.setBounds(180,480,130,40);      //버튼 위치 및 크기설정
-		button2.addActionListener(new MyActionListener());
-		
-		f.add(button); //버튼 추가
 		f.add(button2); 
+		button2.addActionListener(new MyActionListener());
+		JButton button3 = new JButton(""); //관리자페이지
+		f.add(button3);
+		button3.setBounds(770,10,10,10);
+		button3.addActionListener(new MyActionListener1());
+		
+		
+		
+		
+		
+		 
     }
     	
 	class MyActionListener implements ActionListener{
@@ -46,6 +55,25 @@ public class Main {
 				
 			new Menu();
 			f.setVisible(false);}}
+	
+	class MyActionListener0 implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JButton b = (JButton)e.getSource();
+			if (b.getText().equals("매장")) {
+				
+				
+			new Menu();
+			f.setVisible(false);}}}
+	
+	
+	class MyActionListener1 implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			JButton b = (JButton)e.getSource();
+			if (b.getText().equals("")) {
+				
+				
+			new Soldout();
+			}}}
 			
     
     public static void main(String[] args) {	
