@@ -1,3 +1,4 @@
+![header](https://capsule-render.vercel.app/api?type=모양&color=auto&height=높이&section=header&text=텍스트&fontSize=폰트크기)
 # CafeKiosk 
 융합프로그래밍2 3조
 윤종연, 이건회, 이민희, 이지현
@@ -14,3 +15,6 @@
   
 ### 4. PAYMENT
   ![image](https://user-images.githubusercontent.com/101785677/170823530-3f258353-ba8f-4655-897a-0d4f9f845c14.png)
+
+### 5. SOLDOUT
+![image](https://user-images.githubusercontent.com/101785677/171639531-ddf7e46e-ffa9-4e88-ad37-a90da74d3d65.png)
