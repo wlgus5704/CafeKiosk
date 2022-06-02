@@ -89,7 +89,8 @@ public class Payment {
 				new_f.add(card_m);                //프레임에 라벨링 추가
 				card_m.setBounds(110, 40, 200,80);//절대위치지정
 				card_m.setFont(card_m.getFont().deriveFont(15.0f)); //글씨 크기지정
-				}
+				
+			}
 	}}
 	
 	class MyActionListener1 implements ActionListener{
