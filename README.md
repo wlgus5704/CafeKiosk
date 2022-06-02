@@ -1,5 +1,5 @@
 ![image](https://user-images.githubusercontent.com/101785677/171644252-181f0ead-1acc-4fe4-9bcc-27dfbfe83548.png)
-## 융합프로그래밍2 <바리스타융> 윤종연, 이건회, 이민희, 이지현
+☕융합프로그래밍2 <바리스타융> 윤종연, 이건회, 이민희, 이지현
 
 
 제작연도 : 2022 <br/> 
