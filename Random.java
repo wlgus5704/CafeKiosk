@@ -50,7 +50,8 @@ public class Random extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			JButton b = (JButton)e.getSource();
 			if (b.getText().equals("BACK")) {
-				
+				Menu.totalPrice =0;
+				Menu.order_list = "";
 			new Menu();
 			f.setVisible(false);}}}
 	
