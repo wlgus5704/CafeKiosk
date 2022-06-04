@@ -3,11 +3,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.GridLayout;
 
-public class Soldout extends JFrame{ //°ü¸®ÀÚ Å¬·¡½º
+public class Soldout extends JFrame{ //ê´€ë¦¬ì í´ë˜ìŠ¤
 
-	JFrame f=new JFrame("°ü¸®ÀÚ È­¸é");
+	JFrame f=new JFrame("ê´€ë¦¬ì í™”ë©´");
 	JButton button[] = new JButton[18];
-	String namecopy [] = { "¾Æ¸Ş¸®Ä«³ë", "½ºÀ§Æ®¶ó¶¼", "Ä«Æä¸ğÄ«", "¹ĞÅ©Æ¼", "ÃÊÄÚ¶ó¶¼", "³ìÂ÷", "¸¶Ä«·Õ", "Ä¡ÁîÄÉÀÌÅ©", "Å©·ÎÇÃ" };
+	String namecopy [] = { "ì•„ë©”ë¦¬ì¹´ë…¸", "ìŠ¤ìœ„íŠ¸ë¼ë–¼", "ì¹´í˜ëª¨ì¹´", "ë°€í¬í‹°", "ì´ˆì½”ë¼ë–¼", "ë…¹ì°¨", "ë§ˆì¹´ë¡±", "ì¹˜ì¦ˆì¼€ì´í¬", "í¬ë¡œí”Œ" };
 	int pricecopy[] =  {3000, 4500, 3500, 4000, 4000, 4000, 2000, 5000, 5500 };
 	
 	Soldout(){
@@ -15,11 +15,11 @@ public class Soldout extends JFrame{ //°ü¸®ÀÚ Å¬·¡½º
 		
 		
 		for (int i = 0; i<9; i++) {
-			button[i] = new JButton(namecopy[i] + " Ç°Àı");
+			button[i] = new JButton(namecopy[i] + " í’ˆì ˆ");
 			f.add(button[i]);
 		}
 	
-		button[9] = new JButton("ÃÊ±âÈ­");
+		button[9] = new JButton("ì´ˆê¸°í™”");
 		button[9].setBackground(new Color (255,128,0));
 		f.add(button[9]);
 		
@@ -35,11 +35,15 @@ public class Soldout extends JFrame{ //°ü¸®ÀÚ Å¬·¡½º
 		button[9].addActionListener(new MyActionListener9());
 		
 		
-		f.setTitle("°ü¸®ÀÚ È­¸é"); // Á¦¸ñ¼³Á¤
-		f.setSize(500, 500); // »çÀÌÁî¼³Á¤
-		f.setVisible(true); // Ã¢À» È­¸é¿¡ ³ªÅ¸³¾ °ÍÀÎÁö¼³Á¤
-		f.setResizable(false); // Ã¢°íÁ¤
+		f.setTitle("ê´€ë¦¬ì í™”ë©´"); // ì œëª©ì„¤ì •
+		f.setSize(500, 500); // ì‚¬ì´ì¦ˆì„¤ì •
+		f.setVisible(true); // ì°½ì„ í™”ë©´ì— ë‚˜íƒ€ë‚¼ ê²ƒì¸ì§€ì„¤ì •
+		f.setResizable(false); // ì°½ê³ ì •
 		f.setLayout(new GridLayout(0, 3));
+		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+		
+		JLabel A = new JLabel("<html>í’ˆì ˆìƒí’ˆ ì´ë¯¸ ìˆì„ì‹œ <br>ì´ˆê¸°í™” í›„ì— ë‹¤ì‹œ ì‚­ì œ í•„ìš”<html>");
+		f.add(A);
 
 	}
 	
@@ -47,69 +51,69 @@ public class Soldout extends JFrame{ //°ü¸®ÀÚ Å¬·¡½º
 		 class MyActionListener0 implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				JButton b = (JButton)e.getSource();
-				if (b.getText().equals("¾Æ¸Ş¸®Ä«³ë Ç°Àı")) {
-					//Menu.soldout[0] = "¾Æ¸Ş¸®Ä«³ë";
+				if (b.getText().equals("ì•„ë©”ë¦¬ì¹´ë…¸ í’ˆì ˆ")) {
+					//Menu.soldout[0] = "ì•„ë©”ë¦¬ì¹´ë…¸";
 					Menu.price[0]=0;
 					}}}
 		 
 		 class MyActionListener1 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("½ºÀ§Æ®¶ó¶¼ Ç°Àı")) {
-						//Menu.soldout[1] = "½ºÀ§Æ®¶ó¶¼";
+					if (b.getText().equals("ìŠ¤ìœ„íŠ¸ë¼ë–¼ í’ˆì ˆ")) {
+						//Menu.soldout[1] = "ìŠ¤ìœ„íŠ¸ë¼ë–¼";
 						Menu.price[1]=0;
 						}}}
 
 		 class MyActionListener2 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("Ä«Æä¸ğÄ« Ç°Àı")) {
-						//Menu.soldout[2] = "Ä«Æä¸ğÄ«";
+					if (b.getText().equals("ì¹´í˜ëª¨ì¹´ í’ˆì ˆ")) {
+						//Menu.soldout[2] = "ì¹´í˜ëª¨ì¹´";
 						Menu.price[2]=0;
 						}}}
 		 class MyActionListener3 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("¹ĞÅ©Æ¼ Ç°Àı")) {
-						//Menu.soldout[3] = "¹ĞÅ©Æ¼";
+					if (b.getText().equals("ë°€í¬í‹° í’ˆì ˆ")) {
+						//Menu.soldout[3] = "ë°€í¬í‹°";
 						Menu.price[3]=0;
 						}}}
 		 class MyActionListener4 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("ÃÊÄÚ¶ó¶¼ Ç°Àı")) {
-						//Menu.soldout[4] = "ÃÊÄÚ¶ó¶¼";
+					if (b.getText().equals("ì´ˆì½”ë¼ë–¼ í’ˆì ˆ")) {
+						//Menu.soldout[4] = "ì´ˆì½”ë¼ë–¼";
 						Menu.price[4]=0;
 						}}}
 		 
 		 class MyActionListener5 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("³ìÂ÷ Ç°Àı")) {
-						//Menu.soldout[5] = "³ìÂ÷";
+					if (b.getText().equals("ë…¹ì°¨ í’ˆì ˆ")) {
+						//Menu.soldout[5] = "ë…¹ì°¨";
 						Menu.price[5]=0;
 						}}}
 		 class MyActionListener6 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("¸¶Ä«·Õ Ç°Àı")) {
-						//Menu.soldout[6] = "¸¶Ä«·Õ";
+					if (b.getText().equals("ë§ˆì¹´ë¡± í’ˆì ˆ")) {
+						//Menu.soldout[6] = "ë§ˆì¹´ë¡±";
 						Menu.price[6]=0;
 						}}}
 		 
 		 class MyActionListener7 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("Ä¡ÁîÄÉÀÌÅ© Ç°Àı")) {
-						//Menu.soldout[7] = "Ä¡ÁîÄÉÀÌÅ©";
+					if (b.getText().equals("ì¹˜ì¦ˆì¼€ì´í¬ í’ˆì ˆ")) {
+						//Menu.soldout[7] = "ì¹˜ì¦ˆì¼€ì´í¬";
 						Menu.price[7]=0;
 						}}}
 		 
 		 class MyActionListener8 implements ActionListener{
 				public void actionPerformed(ActionEvent e) {
 					JButton b = (JButton)e.getSource();
-					if (b.getText().equals("Å©·ÎÇÃ Ç°Àı")) {
-						//Menu.soldout[8] = "Å©·ÎÇÃ";
+					if (b.getText().equals("í¬ë¡œí”Œ í’ˆì ˆ")) {
+						//Menu.soldout[8] = "í¬ë¡œí”Œ";
 						Menu.price[8] = 0;
 						}}}
 		 
@@ -117,7 +121,7 @@ public class Soldout extends JFrame{ //°ü¸®ÀÚ Å¬·¡½º
 				class MyActionListener9 implements ActionListener {
 					public void actionPerformed(ActionEvent e) {
 						JButton b = (JButton) e.getSource();
-						if (b.getText().equals("ÃÊ±âÈ­")) {
+						if (b.getText().equals("ì´ˆê¸°í™”")) {
 							Menu.price = pricecopy.clone();
 							Menu.Menu_name = namecopy.clone();
 						}
