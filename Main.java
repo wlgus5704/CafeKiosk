@@ -24,7 +24,7 @@ public class Main {
         f.setVisible(true);         //창을 화면에 나타낼 것인지설정
         f.setResizable(false);      //창고정
         f.setLayout(null);
-        
+        f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
         
 		
 		JButton button = new JButton("매장");
