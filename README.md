@@ -3,7 +3,7 @@
 
 
 제작연도 : 2022 <br/> 
-사용기술 : JAVA(swing) <br/> 
+사용기술 : JAVA(swing, awt etc..) <br/> 
 제작목표 : 
 - Swing 컴포넌트의 Jframe과 Jpanel을 이용해 자바 GUI 구현하기
 - 클래스와 객체의 관계를 이용하여 실생활의 복잡한 문제를 해결하기
