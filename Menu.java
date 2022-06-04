@@ -225,6 +225,7 @@ public class Menu extends JFrame {
 		f.setSize(800, 600);
 		f.setLayout(null);
 		f.setVisible(true);
+		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
 
 		for(int i =0; i<9; i++) {
 			if(price[i] == 0) {
